@@ -2,13 +2,9 @@
   📃 Sobre a aplicação
 </h2>
 
-<i>Pontodesk.</i> É uma aplicação onde o foco é resolver um problema de controle interno de chamados de suporte técnico. Tendo isso como referência dentro do sistema você poderá: 
+<i>FinanceBarber</i> Em desenvolvimento!! 
 
-<ul>
-  <li>Criar sua conta de usuário para poder começar a solicitar seus chamados e claro acompanhar seu status em tempo real.</li>
-  <li>Caso seja ADMIN, você terá permissões a mais dentro da plataforma. (Controle de usuários, dashboard com principais indices de acompanhamento, possibilidade de solucionar chamados e claro encaminhar um parecer ao usuário.</li>
-  <li> Em desenvolvimento - Possibilidade de gerar uma analise por parte dos usuários que abriram chamados, após sua resolução.
-</ul>
+Em desenvolvimento!!
 
 <h2>📼 Prévia</h2>
 <p align="center">
@@ -41,7 +37,7 @@ Para o desenvolvimento do sistema, foram utilizados as principais ferramentas:
 1. Clone o repositório em sua maquina utilizando :
 
 ```sh
-  $ git clone https://github.com/Allan-Sartor/pontodesk-client.git
+  $ git clone https://github.com/Allan-Sartor/client-v1.git
 ```
 2. Instale as dependências do projeto:
 ```sh
@@ -66,5 +62,6 @@ E pronto, já é possivel acessar a aplicação.
 <hr>
 
 <h4 align="center">
-    Created by <a href="https://www.linkedin.com/in/allan-gustavo-aa6844131/" target="_blank">Allan Sartor</a>
+    Created by <a href="https://www.linkedin.com/in/allan-gustavo-aa6844131/" target="_blank">Allan Sartor</a> and 
+    <a href="" target="_blank">André Luiz</a>
 </h4>

@@ -11,7 +11,7 @@ export default function Dashboard() {
   return (
     <Card>
       <SimpleGrid flex="1" gap="4" minChildWidth="360px" alignItems="flex-start">
-        <Title name="Pontodesk. | Dashboard"/>
+        <Title name="FinanceBarber | Dashboard"/>
 
           <Box
             p={["6", "8"]}
@@ -59,7 +59,7 @@ export default function Dashboard() {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const {['pontodesk.token']: token } = parseCookies(context)
+  const {['FinanceBarbertoken']: token } = parseCookies(context)
 
   if (!token) {
     return {

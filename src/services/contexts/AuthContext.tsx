@@ -26,11 +26,9 @@ export function AuthProvider({ children }) {
         if (token) {
           setUser(response.data.user)
 
-          setCookie(undefined, 'pontodesk.token', token,
-            { maxAge: 60 * 60 * 3 } // 3 hour
+          setCookie(undefined, 'FinanceBarbertoken', token,
+            { maxAge: 60 * 60 * 24 } // 24 hour
           );
-
-          localStorage.setItem('currentUser', JSON.stringify(response.data.user))
 
           toast({
             title: 'Login realizado com sucesso!',
@@ -45,7 +43,7 @@ export function AuthProvider({ children }) {
               if (response.data.user.admin === true) {
                 Router.push('dashboard')
               } else {
-                Router.push('user-ticket-management')
+                Router.push('dashboard')
               }
             }, 500) // 500 miliseconds 
           )
@@ -69,7 +67,7 @@ export function AuthProvider({ children }) {
   }
 
   async function getValidatedUserToken() {
-    const { 'pontodesk.token': token } = await parseCookies();
+    const { 'FinanceBarbertoken': token } = await parseCookies();
 
     if (token) {
       await api.get('auth_token')

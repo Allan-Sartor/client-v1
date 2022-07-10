@@ -48,7 +48,7 @@ export default function UserList({ users, pagination, error, isLoading }) {
   return (
     <Card>
       <Box flex="1" borderRadius={8} bg={bg} p="8">
-        <Title name="Pontodesk. | Usuários"/>
+        <Title name="FinanceBarber | Usuários"/>
         <Flex mb="8" justify="space-between" align="center">
           <Heading size="lg" fontWeight="normal">
             Usuários
@@ -128,7 +128,7 @@ export default function UserList({ users, pagination, error, isLoading }) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { ['pontodesk.token']: token } = parseCookies(context)
+  const { ['FinanceBarbertoken']: token } = parseCookies(context)
   const apiClient = await getAPIClient(context)
 
   if (!token) {

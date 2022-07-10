@@ -29,7 +29,7 @@ export default function Card({ children }: CardProps) {
       <Header />
       <Flex w="100%" maxWidth={1480} my="6" mx="auto" px="6">
         <Sidebar />
-        {children}
+        { children }
       </Flex>
     </Flex>
   )

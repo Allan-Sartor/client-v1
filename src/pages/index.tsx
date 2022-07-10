@@ -36,7 +36,7 @@ export default function SignIn() {
 
   return (
     <Flex w="100vw" h="100vh" align="center" justify="center" flexDirection="column">
-      <Title name="Pontodesk. | Login"/>
+      <Title name="FinanceBarber | Login"/>
       <Logo
         fontsize={["3xl", "5xl"]}
         marginBottom={5}

@@ -15,10 +15,11 @@ export function Logo({ fontsize, marginBottom, width }: LogoProps) {
       w={width ? width : "64"}
       marginBottom={marginBottom}
     >
-      Pontodesk
+      Fin 
       <Text as="span" color="green.500">
-        .
+        {`. `}
       </Text>
+      Barber
     </Text>
   );
 }

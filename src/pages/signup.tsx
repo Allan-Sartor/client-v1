@@ -19,56 +19,14 @@ type SignUpProps = {
   email: string;
   password: string;
   password_confirmation: string;
-  sector: string;
 }
 
 const signInFormSchema = yup.object().shape({
   name: yup.string().required('Nome obrigatório'),
-  sector: yup.string().required('Selecione uma opção'),
   email: yup.string().required('E-mail obrigatório').email('E-mail inválido'),
   password: yup.string().required('Senha obrigatória').min(8, "No mínimo 8 caracteres"),
   password_confirmation: yup.string().required('A confirmação da senha é obrigatória').oneOf([yup.ref('password')], 'As senhas devem corresponder!'),
 })
-
-const sectors = [
-  {
-    id: 1,
-    name: 'Administrativo/Financeiro'
-  },
-  {
-    id: 2,
-    name: 'Recursos Humanos'
-  },
-  {
-    id: 3,
-    name: 'Desenvolvimento e Produto'
-  },
-  {
-    id: 4,
-    name: 'Marketing'
-  },
-  {
-    id: 5,
-    name: 'Service'
-  },
-  {
-    id: 6,
-    name: 'Success'
-  },
-  {
-    id: 7,
-    name: 'Qualidade e Estratégia'
-  },
-  {
-    id: 8,
-    name: 'Canais'
-  },
-  {
-    id: 9,
-    name: 'Inside Sales'
-  }
-]
-
 
 function SignUp() {
   const { register, handleSubmit, formState } = useForm({
@@ -79,8 +37,8 @@ function SignUp() {
   const bg = useColorModeValue('gray.50', 'gray.800');
   const color = useColorModeValue('green', 'green.600');
 
-  async function handleCreateUser({ name, email, password, password_confirmation, sector }: SignUpProps) {
-    const userData = { name, email, password, password_confirmation, sector };
+  async function handleCreateUser({ name, email, password, password_confirmation }: SignUpProps) {
+    const userData = { name, email, password, password_confirmation };
 
     try {
       await apiCreateUser.post('users', userData)
@@ -108,7 +66,7 @@ function SignUp() {
 
   return (
     <Flex w="100vw" h="100vh" align="center" justify="center" flexDirection="column">
-      <Title name="Pontodesk. | Cadastrar" />
+      <Title name="FinanceBarber | Cadastrar" />
 
       <Logo
         fontsize={["3xl", "5xl"]}
@@ -127,15 +85,6 @@ function SignUp() {
             label="Nome Completo"
             error={errors.name}
             {...register("name")}
-          />
-
-          <Select
-            name="sector"
-            label="Setor"
-            error={errors.sector}
-            options={sectors}
-            ref={register("sector")}
-            {...register("sector")}
           />
 
           <Input

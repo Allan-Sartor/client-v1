@@ -18,7 +18,7 @@ export function Profile({ showProfileData }: ProfileProps) {
   const color = useColorModeValue('gray.200', 'gray.300');
 
   function handleLogoutUser() {
-    destroyCookie(null, 'pontodesk.token');
+    destroyCookie(null, 'FinanceBarbertoken');
 
     toast({
       title: 'Logout realizado com sucesso!',

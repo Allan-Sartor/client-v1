@@ -2,7 +2,7 @@ import axios from "axios";
 import { parseCookies } from "nookies";
 
 export function getAPIClient(context?: any) {
-  const {'pontodesk.token': token} = parseCookies(context);
+  const {'FinanceBarbertoken': token} = parseCookies(context);
 
   const api = axios.create({
     baseURL: 'http://localhost:3001/api/v1/'
