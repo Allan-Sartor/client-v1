@@ -1,6 +1,6 @@
 import { Stack } from "@chakra-ui/react";
 import { useContext } from "react";
-import { RiTeamFill, RiTaskLine, RiLineChartLine } from "react-icons/ri";
+import { RiTaskLine, RiDashboardLine, RiBarChartBoxLine, RiArchiveLine, RiScissorsLine, RiTeamLine } from "react-icons/ri";
 import { AuthContext } from "../../services/contexts/AuthContext";
 import { NavLink } from "./NavLink";
 import { NavSection } from "./NavSection";
@@ -10,21 +10,22 @@ export function SidebarNav() {
 
   return (
     <Stack spacing="12" align="flex-start">
-      <NavSection title="GERAL">
-        {
-          user ?
-            user.admin === true ?
-              <>
-                <NavLink icon={RiLineChartLine} href="/dashboard">Dashboard</NavLink>
-                <NavLink icon={RiTeamFill} href="/users">Usuários</NavLink>
-                <NavLink icon={RiTaskLine} href="/ticket-management">Chamados</NavLink>
-              </>
-              :
-              <NavLink icon={RiTaskLine} href="/user-ticket-management">Meus chamados</NavLink>
-            :
-            ''
-        }
+      <NavSection title="ACOMPANHAMENTO">
+        {user ?
+          user.admin == true ?
+            <NavLink icon={RiDashboardLine} href="/dashboard">Dashboard</NavLink> : ''
+          : ''}
+        <NavLink icon={RiBarChartBoxLine} href="/indicators">Indicadores do dia</NavLink>
       </NavSection>
+
+      {user ?
+        user.admin == true ?
+          <NavSection title="GERENCIAMENTO">
+            <NavLink icon={RiTeamLine} href="/users">Usuários</NavLink>
+            <NavLink icon={RiArchiveLine} href="/ticket-management">Produtos</NavLink>
+            <NavLink icon={RiScissorsLine} href="/ticket-management">Serviços</NavLink>
+          </NavSection> : ''
+        : ''}
     </Stack>
   );
 }
