@@ -7,7 +7,7 @@ type LayoutProps = {
   children?: ReactNode;
 }
 
-export default function Layout({ children }: LayoutProps) {
+export function Layout({ children }: LayoutProps) {
   return (
     <Flex
       direction="column"

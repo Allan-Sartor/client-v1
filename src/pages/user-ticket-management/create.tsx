@@ -1,3 +1,15 @@
+import { GetServerSideProps } from "next";
+import { useRouter } from "next/router";
+import Link from "next/link";
+
+import { parseCookies } from "nookies";
+
+import { api } from "../../services/api";
+
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+import * as yup from "yup";
+
 import {
   Box,
   Button,
@@ -10,17 +22,9 @@ import {
   useToast,
   VStack,
 } from "@chakra-ui/react";
-import Link from "next/link";
-import { Input } from "../../components/Form/Input";
 
-import { SubmitHandler, useForm } from "react-hook-form";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { api } from "../../services/api";
-import { useRouter } from "next/router";
-import { GetServerSideProps } from "next";
-import { parseCookies } from "nookies";
-import Card from "../../components/Card";
+import { Input } from "../../components/Form/Input";
+import { Layout } from "../../components/Layout";
 import { Select } from "../../components/Form/Select";
 import { TextArea } from "../../components/Form/TextArea";
 
@@ -101,7 +105,7 @@ export default function CreateCall() {
   }
 
   return (
-    <Card>
+    <Layout>
       <Box as="form"
         flex="1"
         borderRadius={8}
@@ -164,7 +168,7 @@ export default function CreateCall() {
           </HStack>
         </Flex>
       </Box>
-    </Card>
+    </Layout>
   );
 }
 

@@ -5,7 +5,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup"
 import { useContext } from "react";
 import { AuthContext } from "../services/contexts/AuthContext";
-import ButtonLightOrDark from "../components/ButtonLightOrDark";
+import { ButtonLightOrDark } from "../components/ButtonLightOrDark";
 import { Logo } from "../components/Header/Logo";
 import { Title } from "../components/Title";
 
@@ -36,7 +36,7 @@ export default function SignIn() {
 
   return (
     <Flex w="100vw" h="100vh" align="center" justify="center" flexDirection="column">
-      <Title name="FinanceBarber | Login"/>
+      <Title name="FinanceBarber | Login" />
       <Logo
         fontsize={["3xl", "5xl"]}
         marginBottom={5}

@@ -1,7 +1,5 @@
 import { useContext } from 'react';
 import { GetServerSideProps } from 'next';
-import { useQuery } from 'react-query';
-import { getAPIClient } from '../../services/axios';
 import { parseCookies } from 'nookies';
 
 import { RiCheckLine, RiEyeLine, RiPencilLine } from 'react-icons/ri';
@@ -12,7 +10,6 @@ import {
   Flex,
   Icon,
   Link,
-  Spinner,
   Table,
   Tbody,
   Td,
@@ -24,11 +21,9 @@ import {
   useColorModeValue
 } from '@chakra-ui/react';
 
-import Card from '../../components/Card';
+import { Layout } from '../../components/Layout';
 import CardBox from '../../components/CardBox';
 import { Title } from '../../components/Title';
-
-import { CallsProps } from '../../services/interfaces/calls';
 
 import { AuthContext } from '../../services/contexts/AuthContext';
 
@@ -41,7 +36,7 @@ export default function userTicketList() {
   });
 
   return (
-    <Card>
+    <Layout>
       {user ?
         user.admin === true ?
           <CardBox title="Chamados em aberto">
@@ -165,7 +160,7 @@ export default function userTicketList() {
           <Text>Você não está autenticado!</Text>
         </>
       }
-    </Card>
+    </Layout>
   );
 }
 
