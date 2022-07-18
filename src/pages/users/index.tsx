@@ -20,7 +20,7 @@ import {
 import { RiAddLine, RiPencilLine } from "react-icons/ri";
 
 import NextLink from "next/link";
-import { getUsers, useUsers } from "../../services/interfaces/hooks/useUsers";
+import { getUsers, useUsers } from "../../services/hooks/useUsers";
 import { useState } from "react";
 
 
