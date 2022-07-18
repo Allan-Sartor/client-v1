@@ -1,25 +1,30 @@
-import { Button, Flex, Link, Stack, Text, useColorModeValue, useToast } from "@chakra-ui/react";
+import Router from 'next/router'
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
+import { apiCreateUser } from "../services/api";
+
 import { Input } from "../components/Form/Input";
 import { Logo } from "../components/Header/Logo";
+import { Title } from "../components/Title";
 import { Form } from "../components/Form";
 
-import { apiCreateUser } from "../services/api";
-import Router from 'next/router'
-import { Select } from "../components/Form/Select";
-import { Title } from "../components/Title";
-import ButtonLightOrDark from "../components/ButtonLightOrDark";
+import { 
+  Button, 
+  Flex, 
+  Link, 
+  Stack, 
+  Text, 
+  useToast 
+} from "@chakra-ui/react";
 
-type SignUpProps = {
-  name: string;
-  email: string;
-  password: string;
-  password_confirmation: string;
-}
+import { ButtonLightOrDark } from "../components/ButtonLightOrDark";
+import { useContext } from 'react';
+import { ThemeContext } from '../services/contexts/ThemeContext';
+import { SignUpProps } from '../services/interfaces/authenticate';
+
 
 const signInFormSchema = yup.object().shape({
   name: yup.string().required('Nome obrigatório'),
@@ -29,13 +34,13 @@ const signInFormSchema = yup.object().shape({
 })
 
 function SignUp() {
+  const { backgroundPrimary, textColor } = useContext(ThemeContext);
+  const toast = useToast();
+  
   const { register, handleSubmit, formState } = useForm({
     resolver: yupResolver(signInFormSchema)
   });
   const { errors } = formState;
-  const toast = useToast();
-  const bg = useColorModeValue('gray.50', 'gray.800');
-  const color = useColorModeValue('green', 'green.600');
 
   async function handleCreateUser({ name, email, password, password_confirmation }: SignUpProps) {
     const userData = { name, email, password, password_confirmation };
@@ -76,7 +81,7 @@ function SignUp() {
 
       <Form
         onsubmit={handleSubmit(handleCreateUser)}
-        bg={bg}
+        bg={backgroundPrimary}
       >
         <Stack spacing="4">
           <Input
@@ -123,7 +128,7 @@ function SignUp() {
         </Button>
 
         <Flex justify="space-between" align="flex-start">
-          <Text mr={3} mt={4} color={color}>
+          <Text mr={3} mt={4} color={textColor}>
             Já possui conta?
             <Link ml={2} href="/">
               Clique aqui!

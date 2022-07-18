@@ -1,13 +1,13 @@
 import { Flex } from '@chakra-ui/react';
-import React, { ReactElement } from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 import { Header } from '../Header';
 import { Sidebar } from '../Sidebar';
 
-type CardProps = {
-  children?: ReactElement;
+type LayoutProps = {
+  children?: ReactNode;
 }
 
-export default function Card({ children }: CardProps) {
+export function Layout({ children }: LayoutProps) {
   return (
     <Flex
       direction="column"

@@ -20,14 +20,14 @@ import {
 import { RiAddLine, RiPencilLine } from "react-icons/ri";
 
 import NextLink from "next/link";
-import { getUsers, useUsers } from "../../services/hooks/useUsers";
+import { getUsers, useUsers } from "../../services/interfaces/hooks/useUsers";
 import { useState } from "react";
 
 
 import { GetServerSideProps } from "next";
 import { useQuery } from "react-query";
 import { parseCookies } from "nookies";
-import Card from "../../components/Card";
+import { Layout } from "../../components/Layout";
 import { getAPIClient } from "../../services/axios";
 import { Title } from "../../components/Title";
 import { Pagination } from "../../components/Pagination";
@@ -46,7 +46,7 @@ export default function UserList({ users, pagination, error, isLoading }) {
   });
 
   return (
-    <Card>
+    <Layout>
       <Box flex="1" borderRadius={8} bg={bg} p="8">
         <Title name="FinanceBarber | Usuários"/>
         <Flex mb="8" justify="space-between" align="center">
@@ -123,7 +123,7 @@ export default function UserList({ users, pagination, error, isLoading }) {
           </>
         )}
       </Box>
-    </Card>
+    </Layout>
   );
 }
 
