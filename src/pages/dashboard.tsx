@@ -18,7 +18,7 @@ export default function Dashboard() {
             bg={bg}
             borderRadius={8}
           >
-            <Charts title="Total de chamados hoje" />
+            <Charts title="Total de entradas hoje" />
           </Box>
 
           <Box
@@ -26,7 +26,7 @@ export default function Dashboard() {
             bg={bg}
             borderRadius={8}
           >
-            <Charts title="Total de chamados na semana" />
+            <Charts title="Total de entradas na semana" />
           </Box>
 
           <Box
@@ -34,7 +34,7 @@ export default function Dashboard() {
             bg={bg}
             borderRadius={8}
           >
-            <Charts title="Quantidade de chamados por setor" />
+            <Charts title="Quantidade de entradas por barbeiro" />
           </Box>
 
           <Box
@@ -42,15 +42,7 @@ export default function Dashboard() {
             bg={bg}
             borderRadius={8}
           >
-            <Charts title="Principais problemas" />
-          </Box>
-
-          <Box
-            p={["6", "8"]}
-            bg={bg}
-            borderRadius={8}
-          >
-            <Charts title="Média de avaliações" />
+            <Charts title="Principais entradas" />
           </Box>
 
         </SimpleGrid>
