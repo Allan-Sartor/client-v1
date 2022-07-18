@@ -18,12 +18,11 @@ export default function Dashboard() {
   return (
     <Layout>
       <SimpleGrid flex="1" gap="4" minChildWidth="360px" alignItems="flex-start">
-<<<<<<< HEAD
         <Title name="FinanceBarber | Dashboard"/>
 
           <Box
             p={["6", "8"]}
-            bg={bg}
+            bg={backgroundPrimary}
             borderRadius={8}
           >
             <Charts title="Total de entradas hoje" />
@@ -31,7 +30,7 @@ export default function Dashboard() {
 
           <Box
             p={["6", "8"]}
-            bg={bg}
+            bg={backgroundPrimary}
             borderRadius={8}
           >
             <Charts title="Total de entradas na semana" />
@@ -39,7 +38,7 @@ export default function Dashboard() {
 
           <Box
             p={["6", "8"]}
-            bg={bg}
+            bg={backgroundPrimary}
             borderRadius={8}
           >
             <Charts title="Quantidade de entradas por barbeiro" />
@@ -47,60 +46,14 @@ export default function Dashboard() {
 
           <Box
             p={["6", "8"]}
-            bg={bg}
+            bg={backgroundPrimary}
             borderRadius={8}
           >
             <Charts title="Principais entradas" />
           </Box>
 
         </SimpleGrid>
-    </Card>
-=======
-        <Title name="FinanceBarber | Dashboard" />
-
-        <Box
-          p={["6", "8"]}
-          bg={backgroundPrimary}
-          borderRadius={8}
-        >
-          <Charts title="Total de chamados hoje" />
-        </Box>
-
-        <Box
-          p={["6", "8"]}
-          bg={backgroundPrimary}
-          borderRadius={8}
-        >
-          <Charts title="Total de chamados na semana" />
-        </Box>
-
-        <Box
-          p={["6", "8"]}
-          bg={backgroundPrimary}
-          borderRadius={8}
-        >
-          <Charts title="Quantidade de chamados por setor" />
-        </Box>
-
-        <Box
-          p={["6", "8"]}
-          bg={backgroundPrimary}
-          borderRadius={8}
-        >
-          <Charts title="Principais problemas" />
-        </Box>
-
-        <Box
-          p={["6", "8"]}
-          bg={backgroundPrimary}
-          borderRadius={8}
-        >
-          <Charts title="Média de avaliações" />
-        </Box>
-
-      </SimpleGrid>
     </Layout>
->>>>>>> c56079bbacb910243fc30f0dd14947a8bf2df41c
   )
 }
 

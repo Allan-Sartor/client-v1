@@ -14,7 +14,7 @@ import { Logo } from "./Logo";
 import { NotificationNav } from "./NotificationNav";
 import { Profile } from "./Profile";
 import { SearchBox } from "./SearchBox";
-import ButtonLightOrDark from "../ButtonLightOrDark";
+import { ButtonLightOrDark } from "../ButtonLightOrDark";
 
 export function Header() {
   const { onOpen } = useSidebarDrawer();
