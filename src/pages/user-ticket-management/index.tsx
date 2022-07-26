@@ -27,7 +27,7 @@ import { Title } from '../../components/Title';
 
 import { AuthContext } from '../../services/contexts/AuthContext';
 
-export default function userTicketList() {
+export default function UserTicketList() {
   const { user } = useContext(AuthContext);
   const schemeColor = useColorModeValue('green', 'gray');
   const isWideVersion = useBreakpointValue({
