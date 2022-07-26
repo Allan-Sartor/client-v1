@@ -74,7 +74,7 @@ export function Charts({ title, ...rest}: ChartsProps) {
   return(
     <>
       <Text fontSize="lg" mb="4">{title}</Text>
-      <Chart options={options} series={series} type="area" height={160} {...rest} />
+      {/* <Chart options={options} series={series} type="area" height={160} {...rest} /> */}
     </>
   );
 }
