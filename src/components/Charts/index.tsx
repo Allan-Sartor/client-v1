@@ -17,7 +17,7 @@ const options = {
       show: false,
     },
     zoom: {
-      enabled: true,
+      enabled: false,
     },
     foreColor: theme.colors.gray[500],
   },
@@ -71,7 +71,7 @@ const series = [
   }
 ];
 
-export function Charts({ title, ...rest }: ChartsProps) {
+export function Charts({ title, ...rest}: ChartsProps) {
   return(
     <>
       <Text fontSize="lg" mb="4">{title}</Text>

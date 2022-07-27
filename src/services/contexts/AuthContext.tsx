@@ -1,12 +1,10 @@
 import { createContext, useEffect, useState } from "react";
+import { api } from "../api";
 import { setCookie, parseCookies } from 'nookies';
 import Router from 'next/router'
-
+import { useToast } from "@chakra-ui/react";
 import { User } from "../interfaces/user";
 import { AuthContextProps, SignInData } from "../interfaces/authenticate";
-
-import { useToast } from "@chakra-ui/react";
-import { api } from "../api";
 
 export const AuthContext = createContext({} as AuthContextProps);
 
@@ -45,7 +43,7 @@ export function AuthProvider({ children }) {
               if (response.data.user.admin === true) {
                 Router.push('dashboard')
               } else {
-                Router.push('dashboard')
+                Router.push('ticket-management')
               }
             }, 500) // 500 miliseconds 
           )
@@ -90,7 +88,7 @@ export function AuthProvider({ children }) {
 
   return (
     <AuthContext.Provider value={{ user, isAuthenticated, signIn }}>
-      { children }
+      {children}
     </AuthContext.Provider>
   )
 }

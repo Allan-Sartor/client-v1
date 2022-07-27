@@ -25,6 +25,7 @@ import { useContext } from 'react';
 import { ThemeContext } from '../services/contexts/ThemeContext';
 import { SignUpProps } from '../services/interfaces/authenticate';
 
+
 const signInFormSchema = yup.object().shape({
   name: yup.string().required('Nome obrigatório'),
   email: yup.string().required('E-mail obrigatório').email('E-mail inválido'),
@@ -33,8 +34,8 @@ const signInFormSchema = yup.object().shape({
 })
 
 function SignUp() {
-  const toast = useToast();
   const { backgroundPrimary, textColor } = useContext(ThemeContext);
+  const toast = useToast();
   
   const { register, handleSubmit, formState } = useForm({
     resolver: yupResolver(signInFormSchema)
