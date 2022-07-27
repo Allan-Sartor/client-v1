@@ -13,7 +13,8 @@ export function Logo({ fontsize, marginBottom, width }: LogoProps) {
       fontWeight="bold" 
       letterSpacing="tight" 
       w={width ? width : "64"}
-      marginBottom={marginBottom}
+      marginBottom={ marginBottom }
+      marginLeft={4}
     >
       Fin 
       <Text as="span" color="green.500">
