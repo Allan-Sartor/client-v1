@@ -31,7 +31,6 @@ const options = {
     theme: "dark"
   },
   xaxis: { 
-    type: 'datetime',
     axisBorder: {
       color: theme.colors.gray[600]
     },
@@ -39,15 +38,15 @@ const options = {
       color: theme.colors.gray[600]
     },
     categories: [
-      '2021-03-18T00:00:00.000Z',
-      '2021-03-19T00:00:00.000Z',
-      '2021-03-20T00:00:00.000Z',
-      '2021-03-21T00:00:00.000Z',
-      '2021-03-22T00:00:00.000Z',
-      '2021-03-23T00:00:00.000Z',
-      '2021-03-24T00:00:00.000Z',
-      '2021-03-25T00:00:00.000Z',
-      '2021-03-26T00:00:00.000Z',
+      '01-07-2022',
+      '02-07-2022',
+      '03-07-2022',
+      '04-07-2022',
+      '05-07-2022',
+      '06-07-2022',
+      '07-07-2022',
+      '08-07-2022',
+      '09-07-2022',
     ],
   },
   fill: {
@@ -64,11 +63,11 @@ const options = {
 const series = [
   {
     name: 'Entradas', 
-    data: [10, 120, 55, 66, 80, 133, 140, 500, 600]
+    data: [10, 120, 55, 66, 1000, 133, 140, 500, 700]
   },
   {
     name: 'Saidas', 
-    data: [5, 200, 30, 96, 55, 100, 160, 350, 400]
+    data: [5, 200, 30, 96, 55, 100, 160, 350, 800]
   }
 ];
 
@@ -76,7 +75,7 @@ export function Charts({ title, ...rest }: ChartsProps) {
   return(
     <>
       <Text fontSize="lg" mb="4">{title}</Text>
-      <Chart options={options} series={series} type="area" height={180} {...rest} />
+      <Chart options={options} series={series} type="area" height={200} {...rest} />
     </>
   );
 }
