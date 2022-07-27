@@ -13,6 +13,7 @@ export function ThemeProvider({ children }) {
   });
 
   const backgroundPrimary = useColorModeValue('gray.50', 'blue.800');
+  const colorSchemeGreen = useColorModeValue('green', 'gray');
   const textColor = useColorModeValue('black', 'white');
 
   return (
@@ -21,7 +22,7 @@ export function ThemeProvider({ children }) {
         isWideVersion,
         backgroundPrimary,
         textColor,
-
+        colorSchemeGreen,
       }}>
       {children}
     </ThemeContext.Provider>

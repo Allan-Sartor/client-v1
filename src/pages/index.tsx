@@ -1,18 +1,25 @@
-import { Flex, Button, Stack, Text, Link, useColorModeValue, Box } from "@chakra-ui/react";
-import { Input } from "../components/Form/Input";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { useContext } from "react";
+
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup"
-import { useContext } from "react";
-import { AuthContext } from "../services/contexts/AuthContext";
-import { ButtonLightOrDark } from "../components/ButtonLightOrDark";
-import { Logo } from "../components/Header/Logo";
-import { Title } from "../components/Title";
+import { SubmitHandler, useForm } from "react-hook-form";
 
-type SignInFormData = {
-  email: string;
-  password: string;
-};
+import { AuthContext } from "../services/contexts/AuthContext";
+import { ThemeContext } from "../services/contexts/ThemeContext";
+
+import {
+  Flex,
+  Button,
+  Stack,
+  Text,
+  Link,
+} from "@chakra-ui/react";
+
+import { Title } from "../components/Title";
+import { Input } from "../components/Form/Input";
+import { Logo } from "../components/Header/Logo";
+import { ButtonLightOrDark } from "../components/ButtonLightOrDark";
+import { SignInData } from "../services/interfaces/authenticate";
 
 const signInFormSchema = yup.object().shape({
   email: yup.string().required('E-mail obrigatório').email('E-mail inválido'),
@@ -20,17 +27,19 @@ const signInFormSchema = yup.object().shape({
 })
 
 export default function SignIn() {
+  const { signIn } = useContext(AuthContext);
+  const {
+    backgroundPrimary,
+    textColor,
+    colorSchemeGreen
+  } = useContext(ThemeContext);
+
   const { register, handleSubmit, formState } = useForm({
     resolver: yupResolver(signInFormSchema)
   });
-  const { signIn } = useContext(AuthContext);
-
   const { errors } = formState;
 
-  const bg = useColorModeValue('gray.50', 'gray.800');
-  const color = useColorModeValue('green', 'green.600');
-
-  const handleSignIn: SubmitHandler<SignInFormData> = async (values) => {
+  const handleSignIn: SubmitHandler<SignInData> = async (values) => {
     await signIn(values);
   };
 
@@ -47,7 +56,7 @@ export default function SignIn() {
         as="form"
         w="100%"
         maxWidth={360}
-        bg={bg}
+        bg={backgroundPrimary}
         p="8" // medida chakra
         borderRadius={8}
         flexDir="column"
@@ -74,7 +83,7 @@ export default function SignIn() {
         <Button
           type="submit"
           mt="6"
-          colorScheme="green"
+          colorScheme={colorSchemeGreen}
           size="lg"
           isLoading={formState.isSubmitting}
         >
@@ -82,7 +91,7 @@ export default function SignIn() {
         </Button>
 
         <Flex justify="space-between" align="flex-start">
-          <Text mr={3} mt={4} color={color}>
+          <Text mr={3} mt={4} color={textColor}>
             Não possui conta?
             <Link ml={2} href="/signup">
               Clique aqui!

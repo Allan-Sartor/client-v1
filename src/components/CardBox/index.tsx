@@ -1,7 +1,8 @@
 import { Box, Button, Flex, Heading, Icon, useColorModeValue } from '@chakra-ui/react';
 import NextLink from "next/link";
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useContext } from 'react';
 import { RiAddLine } from 'react-icons/ri';
+import { ThemeContext } from '../../services/contexts/ThemeContext';
 
 type CardBoxProps = {
   title: string;
@@ -9,18 +10,18 @@ type CardBoxProps = {
   children?: ReactElement;
 }
 export default function CardBox({ title, buttonRedirect, children }: CardBoxProps) {
-  const bg = useColorModeValue('gray.50', 'gray.800');
+  const { backgroundPrimary } = useContext(ThemeContext);
 
   return (
     <Box
       flex="1"
       borderRadius={8}
-      bg={bg}
+      bg={backgroundPrimary}
       p="8"
     >
       <Flex mb="8" justify="space-between" align="center">
         <Heading size="lg" fontWeight="normal">
-          {title}
+          { title }
         </Heading>
 
         {
@@ -42,7 +43,7 @@ export default function CardBox({ title, buttonRedirect, children }: CardBoxProp
         }
 
       </Flex>
-      {children}
+      { children }
     </Box>
   );
 }

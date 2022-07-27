@@ -1,3 +1,10 @@
+import { useContext, useState } from "react";
+import { GetServerSideProps } from "next";
+import { parseCookies } from "nookies";
+
+import { getAPIClient } from "../../services/axios";
+import { ThemeContext } from "../../services/contexts/ThemeContext";
+
 import {
   Box,
   Button,
@@ -17,28 +24,18 @@ import {
   useBreakpointValue,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { RiAddLine, RiPencilLine } from "react-icons/ri";
 
-import NextLink from "next/link";
-import { getUsers, useUsers } from "../../services/hooks/useUsers";
-import { useState } from "react";
+import { RiPencilLine } from "react-icons/ri";
 
-
-import { GetServerSideProps } from "next";
-import { useQuery } from "react-query";
-import { parseCookies } from "nookies";
 import { Layout } from "../../components/Layout";
-import { getAPIClient } from "../../services/axios";
 import { Title } from "../../components/Title";
 import { Pagination } from "../../components/Pagination";
 
 export default function UserList({ users, pagination, error, isLoading }) {
   const bg = useColorModeValue('gray.50', 'gray.800');
+  const { backgroundPrimary } = useContext(ThemeContext);
 
   const [page, setPage] = useState(1);
-  // const { data, isLoading, isFetching, error, refetch } = useUsers(page, {
-  //   initialData: users,
-  // });
   
   const isWideVersion = useBreakpointValue({
     base: false,
@@ -47,7 +44,7 @@ export default function UserList({ users, pagination, error, isLoading }) {
 
   return (
     <Layout>
-      <Box flex="1" borderRadius={8} bg={bg} p="8">
+      <Box flex="1" borderRadius={8} bg={backgroundPrimary} p="8">
         <Title name="FinanceBarber | Usuários"/>
         <Flex mb="8" justify="space-between" align="center">
           <Heading size="lg" fontWeight="normal">

@@ -17,7 +17,7 @@ const options = {
       show: false,
     },
     zoom: {
-      enabled: false,
+      enabled: true,
     },
     foreColor: theme.colors.gray[500],
   },
@@ -30,7 +30,7 @@ const options = {
   tooltip: {
     theme: "dark"
   },
-  xaxis: {
+  xaxis: { 
     type: 'datetime',
     axisBorder: {
       color: theme.colors.gray[600]
@@ -46,6 +46,8 @@ const options = {
       '2021-03-22T00:00:00.000Z',
       '2021-03-23T00:00:00.000Z',
       '2021-03-24T00:00:00.000Z',
+      '2021-03-25T00:00:00.000Z',
+      '2021-03-26T00:00:00.000Z',
     ],
   },
   fill: {
@@ -62,19 +64,19 @@ const options = {
 const series = [
   {
     name: 'Entradas', 
-    data: [10, 120, 55, 66, 80, 133, 140]
+    data: [10, 120, 55, 66, 80, 133, 140, 500, 600]
   },
   {
     name: 'Saidas', 
-    data: [5, 200, 30, 96, 55, 100, 160]
+    data: [5, 200, 30, 96, 55, 100, 160, 350, 400]
   }
 ];
 
-export function Charts({ title, ...rest}: ChartsProps) {
+export function Charts({ title, ...rest }: ChartsProps) {
   return(
     <>
       <Text fontSize="lg" mb="4">{title}</Text>
-      {/* <Chart options={options} series={series} type="area" height={160} {...rest} /> */}
+      <Chart options={options} series={series} type="area" height={180} {...rest} />
     </>
   );
 }

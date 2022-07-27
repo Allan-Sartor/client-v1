@@ -1,10 +1,8 @@
 import { useContext } from "react";
-
+import { parseCookies } from 'nookies';
 import { GetServerSideProps } from "next";
 
 import { ThemeContext } from "../services/contexts/ThemeContext";
-
-import { parseCookies } from 'nookies';
 
 import { Box, SimpleGrid } from "@chakra-ui/react";
 
