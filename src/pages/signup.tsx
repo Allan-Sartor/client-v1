@@ -74,7 +74,7 @@ function SignUp() {
       <Title name="FinanceBarber | Cadastrar" />
 
       <Logo
-        fontsize={["3xl", "5xl"]}
+        fontsize={["5xl", "5xl"]}
         marginBottom={5}
         width={0}
       />
