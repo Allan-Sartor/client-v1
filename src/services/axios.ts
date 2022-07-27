@@ -3,9 +3,9 @@ import { parseCookies } from "nookies";
 
 export function getAPIClient(context?: any) {
   const {'FinanceBarbertoken': token} = parseCookies(context);
-  const api = validOfEnvoriment();
+  const api = validOfEnvironments();
   
-  function validOfEnvoriment() {
+  function validOfEnvironments() {
     let api;
 
     if (process.env.NODE_ENV === 'production') {
