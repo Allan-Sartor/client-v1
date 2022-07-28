@@ -1,6 +1,7 @@
 
-import { useBreakpointValue, useColorModeValue } from "@chakra-ui/react";
 import { createContext } from "react";
+
+import { useBreakpointValue, useColorModeValue } from "@chakra-ui/react";
 
 import { ThemeContextProps } from "../interfaces/themes";
 
@@ -11,9 +12,12 @@ export function ThemeProvider({ children }) {
     base: false,
     lg: true,
   });
+  const bg = useColorModeValue('gray.50', 'gray.800')
+  const color = useColorModeValue('gray.900', 'gray.200')
 
   const backgroundPrimary = useColorModeValue('gray.50', 'blue.800');
   const textColor = useColorModeValue('black', 'white');
+  const schemeColorGreen = 'green';
 
   return (
     <ThemeContext.Provider
@@ -21,9 +25,9 @@ export function ThemeProvider({ children }) {
         isWideVersion,
         backgroundPrimary,
         textColor,
-
+        schemeColorGreen
       }}>
-      {children}
+      { children }
     </ThemeContext.Provider>
   )
 }

@@ -1,6 +1,16 @@
-import { Box, Button, Flex, Heading, Icon, useColorModeValue } from '@chakra-ui/react';
+import React, { ReactElement, useContext } from 'react';
 import NextLink from "next/link";
-import React, { ReactElement } from 'react';
+
+import { ThemeContext } from '../../services/contexts/ThemeContext';
+
+import { 
+  Box, 
+  Button, 
+  Flex, 
+  Heading, 
+  Icon 
+} from '@chakra-ui/react';
+
 import { RiAddLine } from 'react-icons/ri';
 
 type CardBoxProps = {
@@ -8,31 +18,32 @@ type CardBoxProps = {
   buttonRedirect?: string;
   children?: ReactElement;
 }
-export default function CardBox({ title, buttonRedirect, children }: CardBoxProps) {
-  const bg = useColorModeValue('gray.50', 'gray.800');
+
+export function CardBox({ title, buttonRedirect, children }: CardBoxProps) {
+  const { backgroundPrimary } = useContext(ThemeContext);
 
   return (
     <Box
       flex="1"
       borderRadius={8}
-      bg={bg}
+      bg={backgroundPrimary}
       p="8"
     >
       <Flex mb="8" justify="space-between" align="center">
         <Heading size="lg" fontWeight="normal">
-          {title}
+          { title }
         </Heading>
 
         {
           buttonRedirect ?
-            <NextLink href={buttonRedirect}>
+            <NextLink href={ buttonRedirect }>
               <Button
                 as="a"
                 size="sm"
                 fontSize="sm"
                 colorScheme="green"
                 cursor="pointer"
-                leftIcon={<Icon as={RiAddLine} fontSize="20" />}
+                leftIcon={<Icon as={ RiAddLine } fontSize="20" />}
               >
                 Criar novo
               </Button>
@@ -42,7 +53,7 @@ export default function CardBox({ title, buttonRedirect, children }: CardBoxProp
         }
 
       </Flex>
-      {children}
+      { children }
     </Box>
   );
 }

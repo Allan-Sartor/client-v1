@@ -1,28 +1,24 @@
+import { useSidebarDrawer } from "../../services/contexts/SidebarDrawerContext";
+import { ThemeContext } from "../../services/contexts/ThemeContext";
+
 import { 
-  Button, 
   Flex, 
   Icon, 
   IconButton, 
-  useBreakpointValue, 
 } from "@chakra-ui/react";
 
-import { RiMenuLine, RiMoonLine, RiSunLine } from "react-icons/ri";
-
-import { useSidebarDrawer } from "../../services/contexts/SidebarDrawerContext";
+import { RiMenuLine } from "react-icons/ri";
 
 import { Logo } from "./Logo";
-import { NotificationNav } from "./NotificationNav";
 import { Profile } from "./Profile";
 import { SearchBox } from "./SearchBox";
+import { NotificationNav } from "./NotificationNav";
 import { ButtonLightOrDark } from "../ButtonLightOrDark";
+import { useContext } from "react";
 
 export function Header() {
   const { onOpen } = useSidebarDrawer();
-
-  const isWideVersion = useBreakpointValue({
-    base: false,
-    lg: true,
-  });
+  const { isWideVersion } = useContext(ThemeContext);
 
   return (
     <Flex

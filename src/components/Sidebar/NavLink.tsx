@@ -1,12 +1,13 @@
+import { ElementType } from "react"; // quando passa uma declaração de componente no caso Icon
+
 import {
   Icon,
   Link as ChakraLink,
   Text,
   LinkProps as ChakraLinkProps,
 } from "@chakra-ui/react";
-import { ElementType } from "react"; // quando passa uma declaração de componente no caso Icon
-import { ActiveLink } from "../ActiveLink";
 
+import { ActiveLink } from "../ActiveLink";
 interface NavLinkProps extends ChakraLinkProps {
   // extends permitindo passar estilizações adicionais ao link
   icon: ElementType;
@@ -20,7 +21,7 @@ export function NavLink({ icon, children, href, ...rest }: NavLinkProps) {
       <ChakraLink display="flex" align="center" {...rest}>
         <Icon as={icon} fontSize="22"></Icon>
         <Text ml="4" fontWeight="medium">
-          {children}
+          { children }
         </Text>
       </ChakraLink>
     </ActiveLink>

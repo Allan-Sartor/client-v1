@@ -1,21 +1,42 @@
-import { AlertDialog, AlertDialogBody, AlertDialogContent, AlertDialogFooter, AlertDialogHeader, AlertDialogOverlay, Avatar, Box, Button, Center, Divider, Flex, IconButton, Menu, MenuButton, MenuDivider, MenuGroup, MenuItem, MenuList, Text, useColorModeValue, useDisclosure, useToast } from "@chakra-ui/react";
+import React, { useContext } from "react";
 import Router from "next/router";
 import { destroyCookie } from "nookies";
-import React, { useContext } from "react";
-import { RiContactsLine, RiLogoutBoxLine, RiMenuLine, RiShieldUserLine } from "react-icons/ri";
+
 import { AuthContext } from "../../services/contexts/AuthContext";
+
+import {
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogContent,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogOverlay,
+  Avatar,
+  Button,
+  Center,
+  Divider,
+  Flex,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  Text,
+  useDisclosure,
+  useToast
+} from "@chakra-ui/react";
+
+import { RiLogoutBoxLine, RiShieldUserLine } from "react-icons/ri";
+import { ThemeContext } from "../../services/contexts/ThemeContext";
 interface ProfileProps {
   showProfileData?: boolean;
 }
 
 export function Profile({ showProfileData }: ProfileProps) {
-  const { user } = useContext(AuthContext);
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
   const toast = useToast();
   const cancelRef = React.useRef();
-
-  const color = useColorModeValue('gray.200', 'gray.300');
+  const { user } = useContext(AuthContext);
+  const { textColor, schemeColorGreen } = useContext(ThemeContext);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   function handleLogoutUser() {
     destroyCookie(null, 'FinanceBarbertoken');
@@ -44,7 +65,7 @@ export function Profile({ showProfileData }: ProfileProps) {
                     <Text fontSize="md">
                       {user ? user.name : ''}
                     </Text>
-                    <Text color={color} fontSize="sm">
+                    <Text color={textColor} fontSize="sm">
                       {user ? user.email : ''}
                     </Text>
                   </Flex>
@@ -92,7 +113,7 @@ export function Profile({ showProfileData }: ProfileProps) {
               <Button ref={cancelRef} onClick={onClose}>
                 Cancelar
               </Button>
-              <Button colorScheme='green' onClick={handleLogoutUser} ml={3}>
+              <Button colorScheme={schemeColorGreen} onClick={handleLogoutUser} ml={3}>
                 Sair
               </Button>
             </AlertDialogFooter>

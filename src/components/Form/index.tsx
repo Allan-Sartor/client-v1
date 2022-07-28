@@ -1,9 +1,9 @@
-import { Flex, FormControlProps } from '@chakra-ui/react'
-import React, { ReactNode } from 'react'
+import React, { ReactElement } from 'react'
 
+import { Flex, FormControlProps } from '@chakra-ui/react'
 interface FormProps extends FormControlProps{
   onsubmit: () => void;
-  children: ReactNode;
+  children: ReactElement;
 }
 
 export function Form({ onsubmit, children, ...rest }: FormProps) {
@@ -18,7 +18,7 @@ export function Form({ onsubmit, children, ...rest }: FormProps) {
       onSubmit={onsubmit}
       {...rest}
     >
-      {children}
+      { children }
     </Flex>
   )
 }

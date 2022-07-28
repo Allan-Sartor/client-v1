@@ -1,5 +1,9 @@
-import { Flex, Icon, Input, useColorModeValue } from "@chakra-ui/react";
-import { useRef } from "react";
+import { useContext, useRef } from "react";
+
+import { ThemeContext } from "../../services/contexts/ThemeContext";
+
+import { Flex, Icon, Input } from "@chakra-ui/react";
+
 import { RiSearchLine } from "react-icons/ri";
 
 // debounce -> Faz com que a busca seja feita após o usuário terminar de digitar
@@ -14,16 +18,13 @@ import { RiSearchLine } from "react-icons/ri";
 // searchInputRef.current.focus() (Imperativo) 
 // 
 // 
-
 interface SearchBoxProps {
   showSearchBox?: boolean;
 }
 
 export function SearchBox({ showSearchBox }: SearchBoxProps) {
+  const { backgroundPrimary, textColor } = useContext(ThemeContext);
   const searchInputRef = useRef<HTMLInputElement>(null)
-
-  const bg = useColorModeValue('gray.50', 'gray.800')
-  const color = useColorModeValue('gray.900', 'gray.200')
 
   return (
     <>
@@ -36,20 +37,20 @@ export function SearchBox({ showSearchBox }: SearchBoxProps) {
             py="4"
             px="6"
             ml="8"
-            bg={bg}
+            bg={backgroundPrimary}
             maxWidth={400}
-            color={color}
+            color={textColor}
             alignSelf="center"
             position="relative"
             borderRadius="7"
           >
             <Input
-              color={color}
+              color={textColor}
               variant="unstyled"
               px="4"
               mr="3"
               placeholder="Buscar chamado..."
-              _placeholder={{ color }}
+              _placeholder={{ textColor }}
               ref={searchInputRef}
             />
 

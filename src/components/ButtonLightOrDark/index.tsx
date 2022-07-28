@@ -1,17 +1,21 @@
-import { Button, Icon, useColorMode, useColorModeValue } from '@chakra-ui/react'
-import React from 'react'
+import React, { useContext } from 'react'
+
+import { Button, Icon, useColorMode } from '@chakra-ui/react'
+
 import { RiMoonLine, RiSunLine } from 'react-icons/ri'
+
+import { ThemeContext } from '../../services/contexts/ThemeContext';
 
 export function ButtonLightOrDark({...rest}) {
   const { colorMode, toggleColorMode } = useColorMode();
-  const bg = useColorModeValue('gray.50', 'gray.800');
+  const { backgroundPrimary } = useContext(ThemeContext);
 
   return (
     <Button
       w="12"
       h="12"
       p="7"
-      bg={bg}
+      bg={backgroundPrimary}
       onClick={toggleColorMode}
       {...rest}
     >

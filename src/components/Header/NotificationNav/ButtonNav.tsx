@@ -1,5 +1,6 @@
-import { Icon } from '@chakra-ui/react';
 import React from 'react';
+
+import { Icon } from '@chakra-ui/react';
 
 export default function ButtonNav({ title, onclick, icon }) {
   return (
@@ -9,7 +10,7 @@ export default function ButtonNav({ title, onclick, icon }) {
       title={title}
       cursor="pointer"
       onClick={onclick}
-      _hover={{ color: "green.500" }}
+      _hover={{ color: "blue.500" }}
     />
   );
 }

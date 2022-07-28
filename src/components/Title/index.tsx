@@ -8,7 +8,7 @@ type TitleProps = {
 export function Title({name}: TitleProps) {
   return (
     <Head>
-      <title>{name}</title>
+      <title>{ name }</title>
     </Head>
   );
 }
