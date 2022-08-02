@@ -30,7 +30,7 @@ export function AuthProvider({ children }) {
       .then((response) => {
         const token = response.data.token
 
-        if (token) {
+        if (token)
           setUser(response.data.user)
 
           setCookie(undefined, 'FinanceBarbertoken', token,
@@ -50,22 +50,13 @@ export function AuthProvider({ children }) {
               if (response.data.user.admin === true) {
                 Router.push('dashboard')
               } else {
-                Router.push('ticket-management')
+                Router.push('dashboard')
               }
             }, 500) // 500 miliseconds 
           )
-        } else {
-          toast({
-            title: 'Usuário ou senha inválidos!',
-            position: 'top-right',
-            status: 'error',
-            duration: 2000, // 2 seconds
-            isClosable: true,
-          })
-        }
-      }).catch((error) => {
+      }).catch(() => {
         toast({
-          title: `${error.message}`,
+          title: 'E-mail ou senha inválido!',
           position: 'top-right',
           status: 'error',
           isClosable: true,
